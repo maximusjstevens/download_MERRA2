@@ -11,7 +11,7 @@
 #  (https://disc.gsfc.nasa.gov/daac-bin/FTPSubset2.pl). 
 
 # To Do:
-# 1. Add year functionality to create_forcing_nc.sh
+# 1. Add functionality to automatically change the retrieved variables.
 
 ##### Begin User Editable Variables #####
 
