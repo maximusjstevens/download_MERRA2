@@ -1,0 +1,4 @@
+# Don't track files with these exstensions
+**.nc
+**HTTP_services* 
+**tmp
