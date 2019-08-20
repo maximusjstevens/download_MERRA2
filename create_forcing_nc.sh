@@ -4,8 +4,8 @@
 
 set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M PRECCU PRECLS PRECSN )
 
-set year = 1980
-set year_end = 1981
+set year = $1
+set year_end = $2
 
 while ( $year < $year_end + 1 )
 foreach vr ( $varlist )

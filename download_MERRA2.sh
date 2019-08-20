@@ -40,4 +40,4 @@ bash retrieve_data.sh
 
 # Process files into .nc
 rm nc_files/*.nc
-csh create_forcing_nc.sh
+csh create_forcing_nc.sh $year_start $year_end
