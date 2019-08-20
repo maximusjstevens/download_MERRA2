@@ -4,8 +4,11 @@
 # To run this script, execute the following command in the terminal:
 # $ bash download_MERRA2.sh
 
-# To Do
-# 1. Update script for user editable variables. 
+# Current functionality: Currently this script downloads MERRA-2 surface meteorology (pressure, specific humidity,
+# 2 m temperature, surface temperature, 10 m u and v winds), precipitation (convective rain, large scale rain, 
+# snowfall), and radiation (absorbed, emitted, and net longwave and donwelling and net shortwave). In order to 
+# change these variables, change print_wget_commands.py. To get example Wget urls visit this link
+#  (https://disc.gsfc.nasa.gov/daac-bin/FTPSubset2.pl). 
 
 ##### Begin User Editable Variables #####
 
