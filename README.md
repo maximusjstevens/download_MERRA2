@@ -11,8 +11,7 @@
 * Wget (https://www.gnu.org/software/wget/)
 
 ## NASA EarthData Login
-#### In order to retrieve MERRA-2 you will need to create a NASA EarthData login (https://urs.earthdata.nasa.gov/
-). You will then need to permit the NASA GESDISC Data archive. Additionally, to store password credentials for automatic data retrievals, initialize a .netrc file directed to urs.earthdata.nasa.gov and an empy .urs_cookies file (https://wiki.earthdata.nasa.gov/display/HDD/Wget+with+URS+Authentication#WgetwithURSAuthentication-Step-by-stepguide). 
+#### In order to retrieve MERRA-2 you will need to create a NASA EarthData login (https://urs.earthdata.nasa.gov/). You will then need to allow access to the NASA GESDISC Data archive. Additionally, to store password credentials for automatic data retrievals, initialize a .netrc file directed to urs.earthdata.nasa.gov and an empy .urs_cookies file (https://wiki.earthdata.nasa.gov/display/HDD/Wget+with+URS+Authentication#WgetwithURSAuthentication-Step-by-stepguide). 
 
 ## Acknowledgments
 #### I would like to acknowledge Richard Cullather for providing instructions on using Wget and Jan Lenaerts for providing starter scripts on processing Wget output into netCDF files. 
