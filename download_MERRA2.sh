@@ -12,6 +12,7 @@
 
 # To Do:
 # 1. Add functionality to automatically change the retrieved variables.
+# 2. Add functionality to allow for retriveing of daily, hourly, monthly data. 
 
 ##### Begin User Editable Variables #####
 
