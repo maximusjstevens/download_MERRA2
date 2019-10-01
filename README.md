@@ -1,5 +1,11 @@
 # download_MERRA2
 
+### For precip select "MERRA-2 tavg ... 1 Hourly, Time Averaged, Single-Level, Assimilation, Vertically Integrated Diagnostics... (tavg1_2d_int_Nx)" Then select PRECCU, PRECLSC, PRECSNO. 
+
+### For radiation select "MERRA-2 tavg ... 1 Hourly, Time Averaged, Single-Level, Assimilation, Radiation Diagnostics... (tavg1_2d_rad_Nx)" Then select LWGAB, LWGEM, LWGNT, SWGDN, and SWGNT. 
+
+### For surface select "MERRA-2 tavg ... 1 Hourly, Time Averaged, Single-Level, Assimilation, Single-Level Diagnostics ... (tavg1_2d_slv_Nx)" Then select PS, QV2M, T2M, TS, U10M, V10M.
+
 ## This repository contains scripts to automatically download and process MERRA-2 atmospheric reanalysis. 
 #### To begin, first clone this directory. Then, modify user editable variables in download_MERRA2.sh in order to match your variable, temporal, and spatial preferences. Next, execute the following command in your terminal window to initialize the workflow. 
 #### $ bash download_MERRA2.sh
