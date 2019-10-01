@@ -9,7 +9,7 @@
 
 ##### For surface select "MERRA-2 tavg ... 1 Hourly, Time Averaged, Single-Level, Assimilation, Single-Level Diagnostics ... (tavg1_2d_slv_Nx)" Then select PS, QV2M, T2M, TS, U10M, V10M.
 
-###Next, execute the following command in your terminal window to initialize the workflow. 
+### Next, execute the following command in your terminal window to initialize the workflow. 
 #### `$ bash download_MERRA2.sh`
 
 ## Dependencies:
