@@ -45,14 +45,27 @@ for day in range(0, len(date)):
 	if day_month < 10:
 		day_month = "0" + str(day_month)
 
+	stream = "-999"
+	if day_year >= 1980 and  day_year < 1990:
+		stream = "1"
+	elif day_year >= 1990 and  day_year < 2000:
+		stream = "2"
+	elif day_year >= 2000 and  day_year < 2010:
+		stream = "3"
+	else:
+		stream = "4"
+
+	# stream = "4"
+
+
 	##### Surface #####
 	surface_file = open(surface_wget_url_file, "a")
 
 	surface_str = "http://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
-		+ "%2Fdata%2FMERRA2%2FM2T1NXSLV.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_100.tavg1_2d_slv_Nx." \
+		+ "%2Fdata%2FMERRA2%2FM2T1NXSLV.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_slv_Nx." \
 		+ day_str \
 		+ ".nc4&FORMAT=bmM0Lw&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
-		+ "&LABEL=MERRA2_100.tavg1_2d_slv_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXSLV&SERVICE=SUBSET_ME" \
+		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_slv_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXSLV&SERVICE=SUBSET_ME" \
 		+ "RRA2&VERSION=1.02&LAYERS=&VARIABLES=ps%2Cqv2m%2Ct2m%2Cts%2Cu10m%2Cv10m\n"
 
 	surface_file.write(surface_str)
@@ -62,10 +75,10 @@ for day in range(0, len(date)):
 	precip_file = open(precip_wget_url_file, "a")
 
 	precip_str = "http://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
-		+ "%2Fdata%2FMERRA2%2FM2T1NXINT.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_100.tavg1_2d_int_Nx." \
+		+ "%2Fdata%2FMERRA2%2FM2T1NXINT.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_int_Nx." \
 		+ day_str \
 		+ ".nc4&FORMAT=bmM0Lw&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
-		+ "&LABEL=MERRA2_100.tavg1_2d_int_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXINT&SERVICE=SUBSET_ME" \
+		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_int_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXINT&SERVICE=SUBSET_ME" \
 		+ "RRA2&VERSION=1.02&LAYERS=&VARIABLES=preccu%2Cprecls%2Cprecsn\n"
 
 	precip_file.write(precip_str)
@@ -75,10 +88,10 @@ for day in range(0, len(date)):
 	radiation_file = open(radiation_wget_url_file, "a")
 
 	radiation_str = "http://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
-		+ "%2Fdata%2FMERRA2%2FM2T1NXRAD.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_100.tavg1_2d_rad_Nx." \
+		+ "%2Fdata%2FMERRA2%2FM2T1NXRAD.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_rad_Nx." \
 		+ day_str \
 		+ ".nc4&FORMAT=bmM0Lw&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
-		+ "&LABEL=MERRA2_100.tavg1_2d_rad_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXRAD&SERVICE=SUBSET_ME" \
+		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_rad_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXRAD&SERVICE=SUBSET_ME" \
 		+ "RRA2&VERSION=1.02&LAYERS=&VARIABLES=lwgab%2Clwgem%2Clwgnt%2Cswgdn%2Cswgnt\n"
 
 	radiation_file.write(radiation_str)

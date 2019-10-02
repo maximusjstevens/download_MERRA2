@@ -16,13 +16,13 @@
 
 ##### Begin User Editable Variables #####
 
-year_start="2000"
-year_end="2001"
+year_start="1980"
+year_end="1980"
 
-month_start="12"
+month_start="1"
 month_end="1"
 
-day_start="31"
+day_start="1"
 day_end="1"
 
 lat_min="-90"
@@ -33,7 +33,7 @@ lon_max="180"
 ##### End User Editable Variables #####
 
 # First print wget commands to files
-#python3 print_wget_commands.py ${year_start} ${year_end} ${month_start} ${month_end} \
+python3 print_wget_commands.py ${year_start} ${year_end} ${month_start} ${month_end} \
 	${day_start} ${day_end} ${lat_min} ${lat_max} ${lon_min} ${lon_max}
 
 # Now run wget to retrieve data
