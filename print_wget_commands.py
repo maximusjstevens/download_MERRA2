@@ -55,9 +55,6 @@ for day in range(0, len(date)):
 	else:
 		stream = "4"
 
-	# stream = "4"
-
-
 	##### Surface #####
 	surface_file = open(surface_wget_url_file, "a")
 
