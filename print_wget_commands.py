@@ -35,6 +35,10 @@ if os.path.exists(precip_wget_url_file):
 radiation_wget_url_file = "./radiation/wget_radiation.sh"
 if os.path.exists(radiation_wget_url_file):
 	os.remove(radiation_wget_url_file)
+evap_wget_url_file = "./evap/wget_evap.sh"
+if os.path.exists(evap_wget_url_file):
+	os.remove(evap_wget_url_file)
+
 
 # Write URLs
 for day in range(0, len(date)):
@@ -94,4 +98,16 @@ for day in range(0, len(date)):
 	radiation_file.write(radiation_str)
 	radiation_file.close()
 
+	##### Evaporation #####
+	evap_file = open(evap_wget_url_file, "a")
+
+	evap_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
+		+ "%2Fdata%2FMERRA2%2FM2T1NXFLX.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_flx_Nx." \
+		+ day_str \
+		+ ".nc4&FORMAT=nc4%2F&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
+		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_flx_Nx." + str(day_str) + ".SUB.nc&SHORTNAME=" \
+		+ "M2T1NXFLX&SERVICE=SUBSET_MERRA2&VERSION=1.02&LAYERS=&VARIABLES=evap\n"
+
+	evap_file.write(evap_str)
+	evap_file.close()
 

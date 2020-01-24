@@ -2,7 +2,7 @@
 
 # This script processes wget outout files and processes them into netcdf files with cdo. 
 
-set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M PRECCU PRECLS PRECSN )
+set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M PRECCU PRECLS PRECSN EVAP )
 
 set year = $1
 set year_end = $2
@@ -16,13 +16,17 @@ else
 	if ( $vr == "SNOWDP_GL") then
 		set pp = "${pp}snowh"
 	else
-		if ( $vr == "PRECCU" || $vr == "PRECLS" || $vr == "PRECSN" ) then
-			set pp = "${pp}precip"
+		if ($vr == "EVAP") then
+			set pp = "${pp}evap"
 		else
-			if ( $vr == "LWGAB" || $vr == "LWGEM" || $vr == "LWGNT" || $vr == "SWGDN" || $vr == "SWGNT" ) then
-				set pp = "${pp}radiation"
+			if ( $vr == "PRECCU" || $vr == "PRECLS" || $vr == "PRECSN" ) then
+				set pp = "${pp}precip"
 			else
-				set pp = "${pp}surface"
+				if ( $vr == "LWGAB" || $vr == "LWGEM" || $vr == "LWGNT" || $vr == "SWGDN" || $vr == "SWGNT" ) then
+					set pp = "${pp}radiation"
+				else
+					set pp = "${pp}surface"
+				endif
 			endif
 		endif
 	endif
@@ -46,6 +50,10 @@ set tmplist = ( `ls tmp*nc | sort` )
 cdo cat $tmplist ../nc_files/$vr"_hourly_"$year".nc"
 end
 @ year = $year + 1
+endif
+
 end
+
+
 
 
