@@ -17,17 +17,17 @@
 ##### Begin User Editable Variables #####
 
 year_start="1980"
-year_end="1980"
+year_end="2019"
 
 month_start="1"
-month_end="1"
+month_end="12"
 
 day_start="1"
-day_end="2"
+day_end="31"
 
-lat_min="-90"
-lat_max="-90"
-lon_min="0"
+lat_min="55"
+lat_max="90"
+lon_min="-80"
 lon_max="0"
 
 ##### End User Editable Variables #####
