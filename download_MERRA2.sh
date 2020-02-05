@@ -16,14 +16,14 @@
 
 ##### Begin User Editable Variables #####
 
-year_start="2019"
-year_end="2019"
+year_start="1980"
+year_end="1980"
 
 month_start="1"
-month_end="12"
+month_end="1"
 
 day_start="1"
-day_end="31"
+day_end="2"
 
 lat_min="-90"
 lat_max="-90"

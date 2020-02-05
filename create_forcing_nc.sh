@@ -32,7 +32,7 @@ else
 	endif
 endif			
 				
-set nr = 10000
+set nr = 100000
 
 rm -f tmp*nc
 rm -f tmp
