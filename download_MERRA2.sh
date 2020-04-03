@@ -16,19 +16,20 @@
 
 ##### Begin User Editable Variables #####
 
-year_start="1980"
+year_start="2019"
 year_end="2019"
 
 month_start="1"
-month_end="12"
+month_end="1"
 
 day_start="1"
-day_end="31"
+day_end="1"
 
-lat_min="55"
-lat_max="90"
-lon_min="-80"
-lon_max="0"
+# Currently this script only supports the following lat/lon box. Need to change the indices in print_wget_commands to bring back this functionality
+lat_min="-90"
+lat_max="-40"
+lon_min="-180"
+lon_max="180"
 
 ##### End User Editable Variables #####
 

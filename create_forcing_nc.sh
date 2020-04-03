@@ -2,14 +2,14 @@
 
 # This script processes wget outout files and processes them into netcdf files with cdo. 
 
-set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M PRECCU PRECLS PRECSN EVAP )
+set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M H500 PRECCU PRECLS PRECSN EVAP )
 
 set year = $1
 set year_end = $2
 
 while ( $year < $year_end + 1 )
 foreach vr ( $varlist )
-set pp = "/Users/eric/Ice sheets & Climate Dropbox/Eric Keenan/download_MERRA2/"
+set pp = "/scratch/summit/erke2265/download_MERRA2/"
 if ( $vr == "FRSEAICE" ) then
 	set pp = "${pp}seaice"
 else
@@ -38,16 +38,14 @@ rm -f tmp*nc
 rm -f tmp
 # foreach fil ( $pp/HTTP*$year*nc4* )
 cd "${pp}"
-foreach fil (HTTP*$year*)
-#foreach fil ($pp/HTTP_services.cgi?FILENAME=%2Fdata%2FMERRA2%2FM2T1NXSLV.5.12.4%2F1995%2F01%2FMERRA2_200.tavg1_2d_slv_Nx.19950101.nc4\&FORMAT=bmM0Lw\&BBOX=-90,-180,-40,180\&LABEL=MERRA2_200.tavg1_2d_slv_Nx.19950101.SUB.nc4\&SHORTNAME=M2T1NXSLV\&SERVICE=SUBSE)
+foreach fil ("MERRA2*")
 	cp $fil tmp
-	cdo selvar,$vr tmp tmp$nr.nc
-	# cdo selvar,$vr $fil tmp$nr.nc
+	/projects/nawe3645/usr/bin/cdo selvar,$vr tmp tmp$nr.nc
 	@ nr = $nr + 1
-  	end
-# set tmplist = { `ls tmp*nc | sort` }
+end
+
 set tmplist = ( `ls tmp*nc | sort` )
-cdo cat $tmplist ../nc_files/$vr"_hourly_"$year".nc"
+/projects/nawe3645/usr/bin/cdo cat $tmplist ../nc_files/$vr"_hourly_"$year".nc"
 end
 @ year = $year + 1
 endif

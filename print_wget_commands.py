@@ -61,53 +61,25 @@ for day in range(0, len(date)):
 
 	##### Surface #####
 	surface_file = open(surface_wget_url_file, "a")
-
-	surface_str = "http://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
-		+ "%2Fdata%2FMERRA2%2FM2T1NXSLV.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_slv_Nx." \
-		+ day_str \
-		+ ".nc4&FORMAT=bmM0Lw&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
-		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_slv_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXSLV&SERVICE=SUBSET_ME" \
-		+ "RRA2&VERSION=1.02&LAYERS=&VARIABLES=ps%2Cqv2m%2Ct2m%2Cts%2Cu10m%2Cv10m\n"
-
+	surface_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/opendap/MERRA2/M2T1NXSLV.5.12.4/" + str(day_year) + "/" + str(day_month) + "/MERRA2_" + str(stream) + "00.tavg1_2d_slv_Nx." + str(day_str) + ".nc4.nc4?H500[0:23][0:100][0:575],PS[0:23][0:100][0:575],QV2M[0:23][0:100][0:575],T2M[0:23][0:100][0:575],TS[0:23][0:100][0:575],U10M[0:23][0:100][0:575],V10M[0:23][0:100][0:575],time,lat[0:100],lon[0:575]\n"
 	surface_file.write(surface_str)
 	surface_file.close()
 
 	##### Precipitation #####
 	precip_file = open(precip_wget_url_file, "a")
-
-	precip_str = "http://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
-		+ "%2Fdata%2FMERRA2%2FM2T1NXINT.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_int_Nx." \
-		+ day_str \
-		+ ".nc4&FORMAT=bmM0Lw&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
-		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_int_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXINT&SERVICE=SUBSET_ME" \
-		+ "RRA2&VERSION=1.02&LAYERS=&VARIABLES=preccu%2Cprecls%2Cprecsn\n"
-
+	precip_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/opendap/MERRA2/M2T1NXINT.5.12.4/" + str(day_year) + "/" + str(day_month) + "/MERRA2_" + str(stream) + "00.tavg1_2d_int_Nx." + str(day_str) + ".nc4.nc4?PRECCU[0:23][0:100][0:575],PRECLS[0:23][0:100][0:575],PRECSN[0:23][0:100][0:575],time,lat[0:100],lon[0:575]\n"
 	precip_file.write(precip_str)
 	precip_file.close()
 
 	##### Radiation #####
 	radiation_file = open(radiation_wget_url_file, "a")
-
-	radiation_str = "http://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
-		+ "%2Fdata%2FMERRA2%2FM2T1NXRAD.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_rad_Nx." \
-		+ day_str \
-		+ ".nc4&FORMAT=bmM0Lw&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
-		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_rad_Nx." + str(day_str) + ".SUB.nc4&SHORTNAME=M2T1NXRAD&SERVICE=SUBSET_ME" \
-		+ "RRA2&VERSION=1.02&LAYERS=&VARIABLES=lwgab%2Clwgem%2Clwgnt%2Cswgdn%2Cswgnt\n"
-
+	radiation_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/opendap/MERRA2/M2T1NXRAD.5.12.4/" + str(day_year) + "/" + str(day_month) + "/MERRA2_" + str(stream) + "00.tavg1_2d_rad_Nx." + str(day_str) + ".nc4.nc4?LWGAB[0:23][0:100][0:575],LWGEM[0:23][0:100][0:575],LWGNT[0:23][0:100][0:575],SWGDN[0:23][0:100][0:575],SWGNT[0:23][0:100][0:575],time,lat[0:100],lon[0:575]\n"
 	radiation_file.write(radiation_str)
 	radiation_file.close()
 
 	##### Evaporation #####
 	evap_file = open(evap_wget_url_file, "a")
-
-	evap_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/daac-bin/OTF/HTTP_services.cgi?FILENAME=" \
-		+ "%2Fdata%2FMERRA2%2FM2T1NXFLX.5.12.4%2F" + str(day_year) + "%2F" + str(day_month) + "%2FMERRA2_" + stream + "00.tavg1_2d_flx_Nx." \
-		+ day_str \
-		+ ".nc4&FORMAT=nc4%2F&BBOX=" + str(lat_min) + "%2C" + str(lon_min) + "%2C" + str(lat_max) + "%2C" + str(lon_max) \
-		+ "&LABEL=MERRA2_" + stream + "00.tavg1_2d_flx_Nx." + str(day_str) + ".SUB.nc&SHORTNAME=" \
-		+ "M2T1NXFLX&SERVICE=SUBSET_MERRA2&VERSION=1.02&LAYERS=&VARIABLES=evap\n"
-
+	evap_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/opendap/MERRA2/M2T1NXFLX.5.12.4/" + str(day_year) + "/" + str(day_month) + "/MERRA2_" + str(stream) + "00.tavg1_2d_flx_Nx." + str(day_str) + ".nc4.nc4?EVAP[0:23][0:100][0:575],time,lat[0:100],lon[0:575]\n"
 	evap_file.write(evap_str)
 	evap_file.close()
 
