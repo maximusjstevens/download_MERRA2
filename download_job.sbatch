@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --account=ucb164_summit1
-#SBATCH --time=00:01:00
+#SBATCH --time=24:00:00
 #SBATCH --qos=normal
 #SBATCH --partition=shas
 #SBATCH --ntasks=1

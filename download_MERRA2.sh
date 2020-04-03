@@ -20,10 +20,10 @@ year_start="2019"
 year_end="2019"
 
 month_start="1"
-month_end="1"
+month_end="12"
 
 day_start="1"
-day_end="1"
+day_end="31"
 
 # Currently this script only supports the following lat/lon box. Need to change the indices in print_wget_commands to bring back this functionality
 lat_min="-90"
