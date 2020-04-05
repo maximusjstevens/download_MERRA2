@@ -1,8 +1,16 @@
 #!/bin/csh -fx
+ml gcc/6.1.0
+ml openmpi/2.0.1
+ml proj
+ml netcdf 
+
+export LDFLAGS='-L/curc/sw/netcdf/4.4.1.1/gcc/6.1.0/lib/ -L/projects/nawe3645/usr/lib/'
+export CPPFLAGS='-I/curc/sw/netcdf/4.4.1.1/gcc/6.1.0/include -I/projects/nawe3645/usr/include/'
+./configure --prefix /projects/nawe3645/usr/ --with-netcdf=/curc/sw/netcdf/4.4.1.1/gcc/6.1.0/ --enable-netcdf4
 
 # This script processes wget outout files and processes them into netcdf files with cdo. 
-
-set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M H500 PRECCU PRECLS PRECSN EVAP )
+set varlist = ( LWGAB )
+#set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M H500 PRECCU PRECLS PRECSN EVAP )
 
 set year = $1
 set year_end = $2
@@ -11,7 +19,8 @@ while ( $year < $year_end + 1 )
 foreach vr ( $varlist )
 set pp = "/scratch/summit/erke2265/download_MERRA2/"
 if ( $vr == "FRSEAICE" ) then
-	set pp = "${pp}seaice"
+	#set pp = "${pp}seaice"
+	cd ${pp}seaice
 else
 	if ( $vr == "SNOWDP_GL") then
 		set pp = "${pp}snowh"
@@ -36,19 +45,20 @@ set nr = 100000
 
 rm -f tmp*nc
 rm -f tmp
-# foreach fil ( $pp/HTTP*$year*nc4* )
 cd "${pp}"
-foreach fil ("MERRA2*")
-	cp $fil tmp
+
+foreach fil (MERRA2*${year}*)
+	echo "$nr"
+	cp "$fil" tmp
 	/projects/nawe3645/usr/bin/cdo selvar,$vr tmp tmp$nr.nc
 	@ nr = $nr + 1
-end
+	end
 
-set tmplist = ( `ls tmp*nc | sort` )
-/projects/nawe3645/usr/bin/cdo cat $tmplist ../nc_files/$vr"_hourly_"$year".nc"
-end
-@ year = $year + 1
-endif
+#set tmplist = ( `ls tmp*nc | sort` )
+#/projects/nawe3645/usr/bin/cdo cat $tmplist ../nc_files/$vr"_hourly_"$year".nc"
+#end
+#@ year = $year + 1
+#endif
 
 end
 
