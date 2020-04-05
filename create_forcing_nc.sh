@@ -9,8 +9,7 @@ export CPPFLAGS='-I/curc/sw/netcdf/4.4.1.1/gcc/6.1.0/include -I/projects/nawe364
 ./configure --prefix /projects/nawe3645/usr/ --with-netcdf=/curc/sw/netcdf/4.4.1.1/gcc/6.1.0/ --enable-netcdf4
 
 # This script processes wget outout files and processes them into netcdf files with cdo. 
-set varlist = ( LWGAB )
-#set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M H500 PRECCU PRECLS PRECSN EVAP )
+set varlist = ( LWGAB LWGEM LWGNT SWGDN SWGNT PS QV2M T2M TS U10M V10M H500 PRECCU PRECLS PRECSN EVAP )
 
 set year = $1
 set year_end = $2
@@ -54,11 +53,11 @@ foreach fil (MERRA2*${year}*)
 	@ nr = $nr + 1
 	end
 
-#set tmplist = ( `ls tmp*nc | sort` )
-#/projects/nawe3645/usr/bin/cdo cat $tmplist ../nc_files/$vr"_hourly_"$year".nc"
-#end
-#@ year = $year + 1
-#endif
+set tmplist = ( `ls tmp*nc | sort` )
+/projects/nawe3645/usr/bin/cdo cat $tmplist ../nc_files/$vr"_hourly_"$year".nc"
+end
+@ year = $year + 1
+endif
 
 end
 
