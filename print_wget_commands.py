@@ -50,18 +50,18 @@ for day in range(0, len(date)):
 		day_month = "0" + str(day_month)
 
 	stream = "-999"
-	if day_year >= 1980 and  day_year < 1990:
+	if day_year >= 1980 and  day_year <= 1990:
 		stream = "1"
-	elif day_year >= 1990 and  day_year < 2000:
+	elif day_year > 1990 and  day_year <= 2000:
 		stream = "2"
-	elif day_year >= 2000 and  day_year < 2010:
+	elif day_year > 2000 and  day_year <= 2010:
 		stream = "3"
 	else:
 		stream = "4"
 
 	##### Surface #####
 	surface_file = open(surface_wget_url_file, "a")
-	surface_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/opendap/MERRA2/M2T1NXSLV.5.12.4/" + str(day_year) + "/" + str(day_month) + "/MERRA2_" + str(stream) + "00.tavg1_2d_slv_Nx." + str(day_str) + ".nc4.nc4?H500[0:23][0:100][0:575],PS[0:23][0:100][0:575],QV2M[0:23][0:100][0:575],T2M[0:23][0:100][0:575],TS[0:23][0:100][0:575],U10M[0:23][0:100][0:575],V10M[0:23][0:100][0:575],time,lat[0:100],lon[0:575]\n"
+	surface_str = "https://goldsmr4.gesdisc.eosdis.nasa.gov/opendap/MERRA2/M2T1NXSLV.5.12.4/" + str(day_year) + "/" + str(day_month) + "/MERRA2_" + str(stream) + "00.tavg1_2d_slv_Nx." + str(day_str) + ".nc4.nc4?H500[0:23][0:100][0:575],time,lat[0:100],lon[0:575]\n"
 	surface_file.write(surface_str)
 	surface_file.close()
 
