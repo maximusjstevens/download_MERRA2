@@ -41,5 +41,6 @@ python3 print_wget_commands.py ${year_start} ${year_end} ${month_start} ${month_
 bash retrieve_data.sh
 
 # Process files into .nc
+mkdir -p nc_files
 rm nc_files/*.nc
 csh create_forcing_nc.sh $year_start $year_end
