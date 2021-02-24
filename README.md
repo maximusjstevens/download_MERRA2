@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/203448170.svg)](https://zenodo.org/badge/latestdoi/203448170)
+
 # download_MERRA2
 
 ## This repository contains scripts to automatically download and process MERRA-2 atmospheric reanalysis. 
