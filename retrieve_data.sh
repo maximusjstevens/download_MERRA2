@@ -1,22 +1,30 @@
 #!/bin/bash
 
+# Option to specify where to save the MERRA-2 files (MS)
+dpth='.' #save in present directory
+# dpth='/PATH/TO/DIRECTORY' #e.g. if you want to put on an externa drive
+
 # This script will retrieve data by executing wget URLs. 
 cd surface
 rm MERRA2*
 rm tmp*
-wget -c -nc --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies -i wget_surface.sh
+wget -P $dpth --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies --content-disposition -i wget_surface.sh
+cd ..
 
-cd ../radiation
+cd radiation
 rm MERRA2*
 rm tmp*
-wget -c -nc --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies -i wget_radiation.sh
+wget -P $dpth --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies --content-disposition -i wget_radiation.sh
+cd ..
 
-cd ../precip
+cd precip
 rm MERRA2*
 rm tmp*
-wget -c -nc --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies -i wget_precip.sh
+wget -P $dpth --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies --content-disposition -i wget_precip.sh
+cd ..
 
-cd ../evap
+cd evap
 rm MERRA2*
 rm tmp*
-wget -c -nc --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies -i wget_evap.sh
+wget -P $dpth --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --auth-no-challenge=on --keep-session-cookies --content-disposition -i wget_evap.sh
+cd ..
