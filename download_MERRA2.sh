@@ -16,8 +16,8 @@
 
 ##### Begin User Editable Variables #####
 
-year_start="2019"
-year_end="2019"
+year_start="1980"
+year_end="2021"
 
 month_start="1"
 month_end="12"
@@ -41,6 +41,6 @@ python3 print_wget_commands.py ${year_start} ${year_end} ${month_start} ${month_
 bash retrieve_data.sh
 
 # Process files into .nc
-mkdir -p nc_files
-rm nc_files/*.nc
-csh create_forcing_nc.sh $year_start $year_end
+# mkdir -p nc_files
+# rm nc_files/*.nc
+# csh create_forcing_nc.sh $year_start $year_end
