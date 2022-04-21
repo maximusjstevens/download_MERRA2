@@ -72,7 +72,7 @@ for day in range(0, len(date)):
         
     ##### Surface #####
     surface_file = open(surface_wget_url_file, "a")
-    m2_vars = ['H500','PS','QV2M','T2M','TS','U10M','V10M']
+    m2_vars = ['H500','PS','QV2M','T2M','TS','U10M','V10M','U2M','V2M']
     m2v_ext = [s+vext for s in m2_vars]
     m2v_cat = ','.join(m2v_ext) + f',time,lat[{ilat_min}:{ilat_max}],lon[{ilon_min}:{ilon_max}]'
     surface_str = f"https://goldsmr4.gesdisc.eosdis.nasa.gov/opendap/MERRA2/M2T1NXSLV.5.12.4/{day_year}/{day_month}/MERRA2_{stream}.tavg1_2d_slv_Nx.{day_str}.nc4.nc4?" + m2v_cat + "\n"
